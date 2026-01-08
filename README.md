@@ -27,6 +27,6 @@ terraform apply
 backend.hcl	            - Where state is stored
 main.tf	                - What infrastructure is created
 Module	                - Reusable logic
-No tfvars	              - Values fixed per env
+No tfvars	             - Values fixed per env
 ```
 
