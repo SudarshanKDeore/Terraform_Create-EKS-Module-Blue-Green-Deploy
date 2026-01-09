@@ -115,15 +115,4 @@ Cleanup BLUE (optional)
       }
     }
 ```
-## 📁 Repo Structure (Typical)
-```
-k8s/
-├── blue/
-│   ├── deployment.yaml
-│   └── service.yaml
-├── green/
-│   ├── deployment.yaml
-│   └── service.yaml
-└── ingress.yaml
-```
 
