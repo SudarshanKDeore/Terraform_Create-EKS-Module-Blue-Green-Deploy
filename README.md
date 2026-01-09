@@ -120,7 +120,8 @@ Cleanup BLUE (optional)
 sed               -->   Stream EDitor
 -i                -->   In-place edit
 k8s/ingress.yaml  -->   The file being modified
-
+```
+```
 __'s/app-blue/app-green/g'__
 s         -->    Substitute
 app-blue  -->    Search pattern
