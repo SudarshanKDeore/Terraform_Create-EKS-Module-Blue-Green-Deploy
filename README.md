@@ -126,4 +126,6 @@ s         -->    Substitute
 app-blue  -->    Search pattern
 app-green -->    Replacement
 g         -->    Global (replace all matches in file)
+
+sed -i 's/app-blue/app-green/g' dynamically switches Kubernetes Ingress traffic by modifying the backend service reference during a Blue-Green deployment.
 ```
