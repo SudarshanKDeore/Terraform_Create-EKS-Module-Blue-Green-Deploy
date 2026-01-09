@@ -2,6 +2,8 @@
 
 ```
 Blue-Green EKS is implemented by creating two identical clusters with separate Terraform states and switching traffic between them for zero-downtime deployments.
+
+ALB Ingress Blue-Green uses separate Kubernetes services behind one ALB, and traffic is switched instantly by updating the Ingress backend without downtime.
 ```
 
 ## ▶️ How to Deploy (Blue / Green)
