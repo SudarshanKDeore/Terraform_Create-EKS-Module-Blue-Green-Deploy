@@ -50,7 +50,7 @@ Switch traffic by changing Ingress rule.
 ```
 backend:
   service:
-    name: app-blue           ---->  # app-green
+    name: app-blue           ---->  # Replace name: app-blue to name: app-green
     port:
       number: 80
 
@@ -109,7 +109,7 @@ Cleanup BLUE (optional)
     stage('Switch Traffic to GREEN') {
       steps {
         sh '''
-        sed -i 's/app-blue/app-green/g' k8s/ingress.yaml
+        sed -i 's/app-blue/app-green/g' k8s/ingress.yaml           // # Replace name: app-blue to name: app-green
         kubectl apply -f k8s/ingress.yaml
         '''
       }
