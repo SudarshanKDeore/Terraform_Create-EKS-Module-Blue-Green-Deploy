@@ -46,7 +46,7 @@ Switch traffic by changing Ingress rule.
 ```
 
 ## 🔁 Traffic Switch (Blue → Green)
-## 🔄 Update ONLY this line: name: app-blue to name: app-green
+## 🔄 Update ONLY this line: name: app-blue to name: app-green Manually
 ```
 backend:
   service:
@@ -75,3 +75,55 @@ Step	Action
 4	    Monitor
 5	    Delete Blue later
 ```
+
+# In Terms Of Jenkins CI-CD Pipeline-
+## 📁 Repo Structure (Typical)
+```
+k8s/
+├── blue/
+│   ├── deployment.yaml
+│   └── service.yaml
+├── green/
+│   ├── deployment.yaml
+│   └── service.yaml
+└── ingress.yaml
+```
+## 🧠 Blue-Green Pipeline Flow in terms of Jenkins
+```
+Code Push
+   ↓
+Jenkins Build
+   ↓
+Deploy GREEN
+   ↓
+Health Check
+   ↓
+Switch ALB Ingress
+   ↓
+Monitor
+   ↓
+Cleanup BLUE (optional)
+```
+## 🔁 Traffic Switch in Jenkinsfile (Blue → Green)
+```
+    stage('Switch Traffic to GREEN') {
+      steps {
+        sh '''
+        sed -i 's/app-blue/app-green/g' k8s/ingress.yaml
+        kubectl apply -f k8s/ingress.yaml
+        '''
+      }
+    }
+```
+## 📁 Repo Structure (Typical)
+```
+k8s/
+├── blue/
+│   ├── deployment.yaml
+│   └── service.yaml
+├── green/
+│   ├── deployment.yaml
+│   └── service.yaml
+└── ingress.yaml
+```
+
